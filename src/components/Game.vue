@@ -103,6 +103,8 @@ function resetHandler() {
   });
 
   shuffledCardData.value = shuffleArray(cardData);
+  tryCount.value = 0;
+  score.value = 0;
 }
 
 /** 比對 */
