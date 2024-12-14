@@ -20,7 +20,7 @@
           <cardSymbol :color="cardColor" />
         </div>
         <div class="middle">
-          <cardSymbol width="36px" height="36px" :color="cardColor" />
+          <cardSymbol width="24px" height="24px" :color="cardColor" />
         </div>
         <div class="bottom">
           <span>{{ cardNumberForUI }}</span>
@@ -59,8 +59,8 @@ interface CardProps {
 }
 
 const props = withDefaults(defineProps<CardProps>(), {
-  width: "110px",
-  height: "150px",
+  width: "90px",
+  height: "120px",
 });
 
 const emit = defineEmits<CardEmits>();
