@@ -149,7 +149,7 @@ onMounted(() => {
 });
 </script>
 
-<style>
+<style scoped>
 section {
   position: relative;
   width: 100%;
@@ -165,9 +165,12 @@ section {
   justify-content: center;
   align-items: center;
   gap: 12px;
+  font-family: "DM Serif Display", serif;
+
   img {
     height: 36px;
   }
+
   span {
     font-size: 2.5rem;
     color: #e0e0e0;
@@ -196,6 +199,7 @@ section {
   gap: 2rem;
   font-size: 1.4rem;
   color: #e0e0e0;
+  font-family: "DM Serif Display", serif;
 }
 
 .text-color {
