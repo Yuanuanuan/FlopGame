@@ -1,6 +1,7 @@
 <template>
   <div class="card-container" @click.prevent="cardClickHandler">
     <div
+      v-if="already"
       class="card"
       :class="{
         active: isFliped,
@@ -32,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import Spade from "../icons/Spade.vue";
 import Heart from "../icons/Heart.vue";
 import Club from "../icons/Club.vue";
@@ -65,6 +66,7 @@ const props = withDefaults(defineProps<CardProps>(), {
 
 const emit = defineEmits<CardEmits>();
 
+const already = ref(false);
 const width = ref(props.width);
 const height = ref(props.height);
 
@@ -115,6 +117,18 @@ function cardClickHandler() {
     return;
   emit("flip", props.cardNumber);
 }
+
+// 處理圖片載入後才顯示字的部分
+const backgroundImageUrl = "/poker.png"; // 你的背景圖片路徑
+
+onMounted(() => {
+  const img = new Image();
+  img.src = backgroundImageUrl;
+
+  img.onload = () => {
+    already.value = true;
+  };
+});
 </script>
 
 <style scoped lang="scss">
